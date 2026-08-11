@@ -5,7 +5,7 @@ AddEventHandler("onResourceStart", function(resourceName)
 		return
 	end
 
-	local version = GetConvar("version", "0.0.0")
+	local version = GetResourceMetadata(resourceName, "version", 0) or "0.0.0"
 	local script = resourceName:gsub("^iluv_", "")
 
 	PerformHttpRequest(REGISTRY_URL:format(script), function(status, body)
